@@ -61,8 +61,8 @@ function dePalabrasAFrase(palabras) {
   // con espacios entre cada palabra
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código: 
-  const array =palabras.split(' ')
-  return array
+  
+  return palabras.join(" ")
 
 }
 
@@ -121,6 +121,19 @@ function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
   // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Escribe tu código aquí:
+  if (arguments.length==1) {
+    return arguments[0]
+  }
+  if (arguments.length==0) {
+    return 0
+  }
+
+  var prod=1
+  for (let i = 0; i < arguments.length; i++) {
+    prod=prod*arguments[i]
+  
+  }
+  return  prod
 }
 
 
@@ -149,7 +162,7 @@ function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero 
   //inicia con 9 y false en otro caso.
   //Escribe tu código aquí
- return n.toString().split('')=='9'
+ return n.toString().split('')[0]=="9"
   
 }
 
@@ -158,6 +171,12 @@ function todosIguales(arreglo) {
   //Escriba la función todosIguales, que indique si todos los elementos de un arreglo son iguales:
   //retornar true, caso contrario retornar false.
   //Escribe tu código aquí  
+  for (let i = 0; i < arreglo.length; i++) {
+    if (arreglo[0]!=arreglo[i]) {
+      return false
+    }
+  }
+  return true
   
 } 
 
@@ -167,6 +186,18 @@ function mesesDelAño(array) {
   // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
   //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
+  var meses =[]
+  for (let i = 0; i < array.length; i++) {
+    if (array[i]=="Marzo" || array[i]=="Noviembre" || array[i]=="Enero" ) {
+      meses.push(array[i])
+    }
+    
+  }
+  if (meses.length<3) {
+    return "No se encontraron los meses pedidos"
+  }
+  
+  return meses
 }
 
 
@@ -174,6 +205,13 @@ function mayorACien(array) {
   //La función recibe un array con enteros entre 0 y 200. Recorrer el array y guardar en un nuevo array sólo los
   //valores mayores a 100 (no incluye el 100). Finalmente devolver el nuevo array.
   // Tu código:
+  var newArray =[]
+  for (let i = 0; i < array.length; i++) {
+    if (array[i]>100) {
+      newArray.push(array[i])
+    }
+  }
+  return newArray
 }
 
 
@@ -185,6 +223,18 @@ function breakStatement(numero) {
   //devolver: "Se interrumpió la ejecución"
   //Pista: usá el statement 'break'
   // Tu código:
+  var array=[]
+  var sum =0
+  for (let i = 0; i < 10; i++) {
+    numero=numero+2
+    array.push(numero)
+
+    if(numero == i){
+      return "Se interrumpió la ejecución"
+    }
+    
+  }
+  return array
 }
 
 
@@ -196,8 +246,14 @@ function continueStatement(numero) {
   //Pista: usá el statement 'continue'
   // Tu código:
   var array=[]
+  
   for (let i = 0; i <10; i++) {
-    array[i]=numero+2
+    
+    if (i!=4) {
+      numero=numero+2
+      array.push(numero)
+    }
+    
   }
   return array
 }
